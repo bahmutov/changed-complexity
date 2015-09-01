@@ -105,13 +105,21 @@ function locLogger(printer, fileChanges) {
       var after = fileChange.after.aggregate;
       var locAfter = after.sloc.logical;
       var locDiff = locAfter - locBefore;
-      var locChange = locAfter < locBefore ? '-' + locDiff : '+' + locDiff;
-      printer('%s %s LOC', fileChange.name, locChange);
+      var locChangeStr = '0';
+      if (locDiff) {
+        locChangeStr = locDiff < 0 ?
+          '-' + locDiff :
+          '+' + locDiff;
+      }
+      printer('%s %s LOC', fileChange.name, locChangeStr);
     } else if (fileChange.change === 'A') {
       var after = fileChange.after.aggregate;
       var locAfter = after.sloc.logical;
-      var locChange = '+' + locAfter;
-      printer('%s %s LOC', fileChange.name, locChange);
+      var locChangeStr = '0';
+      if (locAfter) {
+        locChangeStr = '+' + locAfter;
+      }
+      printer('%s %s LOC', fileChange.name, locChangeStr);
     }
   });
 }
