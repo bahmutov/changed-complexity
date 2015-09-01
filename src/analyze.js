@@ -105,11 +105,9 @@ function locLogger(printer, fileChanges) {
       var after = fileChange.after.aggregate;
       var locAfter = after.sloc.logical;
       var locDiff = locAfter - locBefore;
-      var locChangeStr = '0';
-      if (locDiff) {
-        locChangeStr = locDiff < 0 ?
-          '-' + locDiff :
-          '+' + locDiff;
+      var locChangeStr = locDiff;
+      if (locDiff > 0) {
+        locChangeStr = '+' + locDiff;
       }
       printer('%s %s LOC', fileChange.name, locChangeStr);
     } else if (fileChange.change === 'A') {
