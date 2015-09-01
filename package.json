@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Computes the changed complexity for JavaScript files changed in the current commit",
   "main": "index.js",
+  "bin": {
+    "chc": "./bin/changed-complexity.js"
+  },
   "scripts": {
     "test": "mocha src/*-spec.js",
     "demo": "node index.js"
