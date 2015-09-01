@@ -4,7 +4,8 @@
   "description": "Computes the changed complexity for JavaScript files changed in the current commit",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/*-spec.js"
+    "test": "mocha src/*-spec.js",
+    "demo": "node index.js"
   },
   "keywords": [
     "complexity",
@@ -29,7 +30,6 @@
     "ramda": "0.17.1"
   },
   "pre-commit": [
-    "node index.js",
     "npm test",
     "npm version"
   ]
