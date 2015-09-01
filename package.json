@@ -29,8 +29,8 @@
     "ramda": "0.17.1"
   },
   "pre-commit": [
-    "npm test",
     "node index.js",
+    "npm test",
     "npm version"
   ]
 }
